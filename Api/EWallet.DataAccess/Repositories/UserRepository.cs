@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
+using EWallet.Domain.Dtos;
 
 namespace EWallet.DataAccess.Repositories
 {
@@ -61,7 +62,7 @@ namespace EWallet.DataAccess.Repositories
 			
 		}
 
-		public bool EditDataUser(User data)
+		public bool EditDataUser(DetailUserAccountDto data)
 		{
 			//throw new NotImplementedException();
 			var user = _context.Users.Where(x => x.Email == data.Email && x.IsDelete == false).FirstOrDefault();
@@ -115,7 +116,7 @@ namespace EWallet.DataAccess.Repositories
 			_context.SaveChanges();
 			return true;
 		}
-		public bool Register(User registerUserDto)
+		public bool Register(RegisterUserDto registerUserDto)
 		{
 
 			User user = new User()

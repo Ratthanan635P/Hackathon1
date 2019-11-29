@@ -1,4 +1,5 @@
-﻿using EWallet.Domain.Entities;
+﻿using EWallet.Domain.Dtos;
+using EWallet.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,13 +9,13 @@ namespace EWallet.Domain.Interfaces.Repositories
 	public interface IUserRepository
 	{
 		//
-		bool Register(User registerUserDto);
+		bool Register(RegisterUserDto registerUserDto);
 		//
 		bool CheckUserAccount(string email);
 		//
 		User LogIn(string email, string password);
 		//
-		bool EditDataUser(User data);
+		bool EditDataUser(DetailUserAccountDto data);
 		//
 		bool LogOut(string email);
 		//

@@ -26,7 +26,7 @@ namespace EWallet.DataAccess.Repositories
 			}
 			else
 			{
-				return user.AccountEWallet.Balance;
+				return user.Balance;
 			}
 		}
 
