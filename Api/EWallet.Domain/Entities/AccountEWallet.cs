@@ -7,7 +7,9 @@ namespace EWallet.Domain.Entities
 	public class AccountEWallet
 	{
 		// PK ID 
-		public string Id { get; set; }
+		public int Id { get; set; }
+		public string AccountWallet { get; set; }
+		public string Email { get; set; }
 		public double Balance { get; set; }
 		public DateTime CreateDate { get; set; }
 		public DateTime UpdateDate { get; set; }

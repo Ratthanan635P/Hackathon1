@@ -8,10 +8,13 @@ namespace EWallet.DataAccess.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "AccountEWallet",
+                name: "AccountEWallets",
                 columns: table => new
                 {
-                    Id = table.Column<string>(nullable: false),
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    AccountWallet = table.Column<string>(maxLength: 50, nullable: false),
+                    Email = table.Column<string>(maxLength: 50, nullable: false),
                     Balance = table.Column<double>(nullable: false),
                     CreateDate = table.Column<DateTime>(nullable: false),
                     UpdateDate = table.Column<DateTime>(nullable: false),
@@ -20,7 +23,7 @@ namespace EWallet.DataAccess.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AccountEWallet", x => x.Id);
+                    table.PrimaryKey("PK_AccountEWallets", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -33,7 +36,7 @@ namespace EWallet.DataAccess.Migrations
                     UpdateDate = table.Column<DateTime>(nullable: false),
                     UpdateBy = table.Column<int>(nullable: false),
                     IsDelete = table.Column<bool>(nullable: false),
-                    RefNo = table.Column<string>(nullable: true),
+                    RefNo = table.Column<string>(maxLength: 250, nullable: false),
                     IsUsed = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
@@ -70,21 +73,21 @@ namespace EWallet.DataAccess.Migrations
                     UpdateBy = table.Column<int>(nullable: false),
                     IsDelete = table.Column<bool>(nullable: false),
                     ImageProfile = table.Column<byte[]>(nullable: true),
-                    NameShop = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true),
-                    Password = table.Column<string>(nullable: true),
-                    Salt = table.Column<string>(nullable: true),
+                    NameAgrent = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(maxLength: 50, nullable: false),
+                    Password = table.Column<string>(maxLength: 50, nullable: false),
+                    Salt = table.Column<string>(maxLength: 50, nullable: false),
                     Active = table.Column<int>(nullable: false),
                     ActiveDateTime = table.Column<DateTime>(nullable: false),
-                    AccountEWalletId = table.Column<string>(nullable: true)
+                    AccountEWalletId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Agrents", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Agrents_AccountEWallet_AccountEWalletId",
+                        name: "FK_Agrents_AccountEWallets_AccountEWalletId",
                         column: x => x.AccountEWalletId,
-                        principalTable: "AccountEWallet",
+                        principalTable: "AccountEWallets",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -101,20 +104,20 @@ namespace EWallet.DataAccess.Migrations
                     IsDelete = table.Column<bool>(nullable: false),
                     ImageProfile = table.Column<byte[]>(nullable: true),
                     NameShop = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true),
-                    Password = table.Column<string>(nullable: true),
-                    Salt = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(maxLength: 50, nullable: false),
+                    Password = table.Column<string>(maxLength: 50, nullable: false),
+                    Salt = table.Column<string>(maxLength: 50, nullable: false),
                     Active = table.Column<int>(nullable: false),
                     ActiveDateTime = table.Column<DateTime>(nullable: false),
-                    AccountEWalletId = table.Column<string>(nullable: true)
+                    AccountEWalletId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Marchants", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Marchants_AccountEWallet_AccountEWalletId",
+                        name: "FK_Marchants_AccountEWallets_AccountEWalletId",
                         column: x => x.AccountEWalletId,
-                        principalTable: "AccountEWallet",
+                        principalTable: "AccountEWallets",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -130,9 +133,9 @@ namespace EWallet.DataAccess.Migrations
                     UpdateBy = table.Column<int>(nullable: false),
                     IsDelete = table.Column<bool>(nullable: false),
                     RefNo = table.Column<string>(nullable: true),
-                    SenderId = table.Column<string>(nullable: true),
+                    SenderId = table.Column<int>(nullable: true),
                     SenderTransaction = table.Column<int>(nullable: false),
-                    ReceiveId = table.Column<string>(nullable: true),
+                    ReceiveId = table.Column<int>(nullable: true),
                     ReceiveTransaction = table.Column<int>(nullable: false),
                     Money = table.Column<double>(nullable: false)
                 },
@@ -140,15 +143,15 @@ namespace EWallet.DataAccess.Migrations
                 {
                     table.PrimaryKey("PK_Transactions", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Transactions_AccountEWallet_ReceiveId",
+                        name: "FK_Transactions_AccountEWallets_ReceiveId",
                         column: x => x.ReceiveId,
-                        principalTable: "AccountEWallet",
+                        principalTable: "AccountEWallets",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Transactions_AccountEWallet_SenderId",
+                        name: "FK_Transactions_AccountEWallets_SenderId",
                         column: x => x.SenderId,
-                        principalTable: "AccountEWallet",
+                        principalTable: "AccountEWallets",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -164,15 +167,15 @@ namespace EWallet.DataAccess.Migrations
                     UpdateBy = table.Column<int>(nullable: false),
                     IsDelete = table.Column<bool>(nullable: false),
                     ImageBackground = table.Column<byte[]>(nullable: true),
-                    FristName = table.Column<string>(nullable: true),
-                    LastName = table.Column<string>(nullable: true),
+                    FristName = table.Column<string>(maxLength: 50, nullable: false),
+                    LastName = table.Column<string>(maxLength: 50, nullable: false),
                     BrithDate = table.Column<DateTime>(nullable: false),
-                    Phone = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true),
-                    Password = table.Column<string>(nullable: true),
-                    Salt = table.Column<string>(nullable: true),
+                    Phone = table.Column<string>(maxLength: 20, nullable: false),
+                    Email = table.Column<string>(maxLength: 50, nullable: false),
+                    Password = table.Column<string>(maxLength: 50, nullable: false),
+                    Salt = table.Column<string>(maxLength: 50, nullable: false),
                     FingerPrintStattus = table.Column<bool>(nullable: false),
-                    AccountEWalletId = table.Column<string>(nullable: true),
+                    AccountEWalletId = table.Column<int>(nullable: true),
                     Active = table.Column<int>(nullable: false),
                     ActiveDateTime = table.Column<DateTime>(nullable: false)
                 },
@@ -180,9 +183,9 @@ namespace EWallet.DataAccess.Migrations
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Users_AccountEWallet_AccountEWalletId",
+                        name: "FK_Users_AccountEWallets_AccountEWalletId",
                         column: x => x.AccountEWalletId,
-                        principalTable: "AccountEWallet",
+                        principalTable: "AccountEWallets",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -234,7 +237,7 @@ namespace EWallet.DataAccess.Migrations
                 name: "Users");
 
             migrationBuilder.DropTable(
-                name: "AccountEWallet");
+                name: "AccountEWallets");
         }
     }
 }

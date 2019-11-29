@@ -7,17 +7,7 @@ namespace EWallet.Domain.Interfaces.Repositories
 {
 	public interface IUserRepository
 	{
-		//string AddUser(string email, string password, string salt);
-		////ดึง Salt โดย Username 
-		////string GetSaltByUser(string userName);
-		////Update For Forgotpassword
-		//string UpdateUser(string email, string password, string salt);
-		////ดึง Salt และ Password โดย Username เพื่อ Check
-		//User GetUserByEmail(string email);
-		////Update ActiveStatus to false  =>  Logout
-		//string UpdateActiveStatus(string email);
-		////
-
+		//
 		bool Register(User registerUserDto);
 		//
 		bool CheckUserAccount(string email);
@@ -35,6 +25,9 @@ namespace EWallet.Domain.Interfaces.Repositories
 		double CheckBalance(string email);
 		//
 		List<Transactions> History(string email);
-
+		//
+		//bool TopUp();
+		//
+		//bool payment
 	}
 }

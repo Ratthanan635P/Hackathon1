@@ -21,14 +21,26 @@ namespace EWallet.DataAccess.Migrations
 
             modelBuilder.Entity("EWallet.Domain.Entities.AccountEWallet", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AccountWallet")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<double>("Balance")
                         .HasColumnType("float");
 
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<bool>("IsDelete")
                         .HasColumnType("bit");
@@ -41,7 +53,7 @@ namespace EWallet.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AccountEWallet");
+                    b.ToTable("AccountEWallets");
                 });
 
             modelBuilder.Entity("EWallet.Domain.Entities.Agrent", b =>
@@ -51,8 +63,8 @@ namespace EWallet.DataAccess.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("AccountEWalletId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int?>("AccountEWalletId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Active")
                         .HasColumnType("int");
@@ -139,8 +151,8 @@ namespace EWallet.DataAccess.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("AccountEWalletId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int?>("AccountEWalletId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Active")
                         .HasColumnType("int");
@@ -204,8 +216,8 @@ namespace EWallet.DataAccess.Migrations
                     b.Property<double>("Money")
                         .HasColumnType("float");
 
-                    b.Property<string>("ReceiveId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int?>("ReceiveId")
+                        .HasColumnType("int");
 
                     b.Property<int>("ReceiveTransaction")
                         .HasColumnType("int");
@@ -213,8 +225,8 @@ namespace EWallet.DataAccess.Migrations
                     b.Property<string>("RefNo")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SenderId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int?>("SenderId")
+                        .HasColumnType("int");
 
                     b.Property<int>("SenderTransaction")
                         .HasColumnType("int");
@@ -241,8 +253,8 @@ namespace EWallet.DataAccess.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("AccountEWalletId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int?>("AccountEWalletId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Active")
                         .HasColumnType("int");

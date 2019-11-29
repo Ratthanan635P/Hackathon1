@@ -12,7 +12,7 @@ namespace EWallet.Domain.Interfaces.Repositories
 		//  login(email ,password)
 		Marchant LogIn(string email, string password);
 		//  GenarateTopup(double money)==>	จะได้ referrence 
-		string GenarateTopup(double money);
+		//string GenarateTopup(double money);
 		//  history(Accountid) => List<Transaction>
 		List<Transactions> History(string email);
 		//  CheckBalance()==>	จะได้ double 

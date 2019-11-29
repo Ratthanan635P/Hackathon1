@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EWallet.DataAccess.Migrations
 {
     [DbContext(typeof(EWalletContext))]
-    [Migration("20191129080041_initdb")]
+    [Migration("20191129135403_initdb")]
     partial class initdb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,14 +23,26 @@ namespace EWallet.DataAccess.Migrations
 
             modelBuilder.Entity("EWallet.Domain.Entities.AccountEWallet", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AccountWallet")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<double>("Balance")
                         .HasColumnType("float");
 
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<bool>("IsDelete")
                         .HasColumnType("bit");
@@ -43,7 +55,7 @@ namespace EWallet.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AccountEWallet");
+                    b.ToTable("AccountEWallets");
                 });
 
             modelBuilder.Entity("EWallet.Domain.Entities.Agrent", b =>
@@ -53,8 +65,8 @@ namespace EWallet.DataAccess.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("AccountEWalletId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int?>("AccountEWalletId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Active")
                         .HasColumnType("int");
@@ -66,7 +78,9 @@ namespace EWallet.DataAccess.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<byte[]>("ImageProfile")
                         .HasColumnType("varbinary(max)");
@@ -74,14 +88,18 @@ namespace EWallet.DataAccess.Migrations
                     b.Property<bool>("IsDelete")
                         .HasColumnType("bit");
 
-                    b.Property<string>("NameShop")
+                    b.Property<string>("NameAgrent")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<string>("Salt")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<int>("UpdateBy")
                         .HasColumnType("int");
@@ -113,7 +131,9 @@ namespace EWallet.DataAccess.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("RefNo")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(250)")
+                        .HasMaxLength(250);
 
                     b.Property<int>("UpdateBy")
                         .HasColumnType("int");
@@ -133,8 +153,8 @@ namespace EWallet.DataAccess.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("AccountEWalletId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int?>("AccountEWalletId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Active")
                         .HasColumnType("int");
@@ -146,7 +166,9 @@ namespace EWallet.DataAccess.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<byte[]>("ImageProfile")
                         .HasColumnType("varbinary(max)");
@@ -158,10 +180,14 @@ namespace EWallet.DataAccess.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<string>("Salt")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<int>("UpdateBy")
                         .HasColumnType("int");
@@ -176,7 +202,7 @@ namespace EWallet.DataAccess.Migrations
                     b.ToTable("Marchants");
                 });
 
-            modelBuilder.Entity("EWallet.Domain.Entities.Transaction", b =>
+            modelBuilder.Entity("EWallet.Domain.Entities.Transactions", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -192,8 +218,8 @@ namespace EWallet.DataAccess.Migrations
                     b.Property<double>("Money")
                         .HasColumnType("float");
 
-                    b.Property<string>("ReceiveId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int?>("ReceiveId")
+                        .HasColumnType("int");
 
                     b.Property<int>("ReceiveTransaction")
                         .HasColumnType("int");
@@ -201,8 +227,8 @@ namespace EWallet.DataAccess.Migrations
                     b.Property<string>("RefNo")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SenderId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int?>("SenderId")
+                        .HasColumnType("int");
 
                     b.Property<int>("SenderTransaction")
                         .HasColumnType("int");
@@ -229,8 +255,8 @@ namespace EWallet.DataAccess.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("AccountEWalletId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int?>("AccountEWalletId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Active")
                         .HasColumnType("int");
@@ -245,13 +271,17 @@ namespace EWallet.DataAccess.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<bool>("FingerPrintStattus")
                         .HasColumnType("bit");
 
                     b.Property<string>("FristName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<byte[]>("ImageBackground")
                         .HasColumnType("varbinary(max)");
@@ -260,16 +290,24 @@ namespace EWallet.DataAccess.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<string>("Phone")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(20)")
+                        .HasMaxLength(20);
 
                     b.Property<string>("Salt")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<int>("UpdateBy")
                         .HasColumnType("int");
@@ -332,14 +370,14 @@ namespace EWallet.DataAccess.Migrations
                         .HasForeignKey("AccountEWalletId");
                 });
 
-            modelBuilder.Entity("EWallet.Domain.Entities.Transaction", b =>
+            modelBuilder.Entity("EWallet.Domain.Entities.Transactions", b =>
                 {
                     b.HasOne("EWallet.Domain.Entities.AccountEWallet", "Receive")
-                        .WithMany("TransactionReceiveId")
+                        .WithMany("TransactionReceive")
                         .HasForeignKey("ReceiveId");
 
                     b.HasOne("EWallet.Domain.Entities.AccountEWallet", "Sender")
-                        .WithMany("TransactionSenderId")
+                        .WithMany("TransactionSender")
                         .HasForeignKey("SenderId");
                 });
 
