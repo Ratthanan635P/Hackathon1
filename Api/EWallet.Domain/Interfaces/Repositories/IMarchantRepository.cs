@@ -8,7 +8,7 @@ namespace EWallet.Domain.Interfaces.Repositories
 	public interface IMarchantRepository
 	{
 		// Register
-		bool RegisterMarchant(Marchant marchant);
+		//bool RegisterMarchant(Marchant marchant);
 		//  login(email ,password)
 		Marchant LogIn(string email, string password);
 		//  GenarateTopup(double money)==>	จะได้ referrence 

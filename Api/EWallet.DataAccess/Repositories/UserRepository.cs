@@ -95,7 +95,7 @@ namespace EWallet.DataAccess.Repositories
 		public User LogIn(string email, string password)
 		{
 			//throw new NotImplementedException();
-			var result = _context.Users.Where(x => x.Email == email && x.Password == password).FirstOrDefault();
+			var result = _context.Users.Include(x=>x.AccountEWallet).Where(x => x.Email == email && x.Password == password).FirstOrDefault();
 			if (result == null)
 			{
 				return result;
@@ -103,7 +103,7 @@ namespace EWallet.DataAccess.Repositories
 			else
 			{
 
-				_context.SaveChanges();
+				//_context.SaveChanges();
 				return result;
 			}
 		}

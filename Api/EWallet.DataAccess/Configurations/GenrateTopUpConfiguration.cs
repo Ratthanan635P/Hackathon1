@@ -12,7 +12,7 @@ namespace EWallet.DataAccess.Configurations
 		public void Configure(EntityTypeBuilder<GenrateTopUp> builder)
 		{
 			builder.Property(x => x.RefNo).HasMaxLength(250).IsRequired();
-
+			builder.HasOne(x => x.Agrent).WithMany(x => x.GenrateTopUps);
 		}
 	}
 }

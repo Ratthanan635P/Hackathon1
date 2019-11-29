@@ -17,6 +17,7 @@ namespace EWallet.Domain.Entities
 		public DateTime ActiveDateTime { get; set; }
 		// FK AccountID 
 		public AccountEWallet AccountEWallet { get; set; }
-		
+		public ICollection<GenrateTopUp> GenrateTopUps { get; set; }
+
 	}
 }

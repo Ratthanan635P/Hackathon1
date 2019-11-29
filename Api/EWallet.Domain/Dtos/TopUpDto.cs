@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace EWallet.Domain.Entities
+namespace EWallet.Domain.Dtos
 {
-	public class GenrateTopUp:BaseEntities
+	public class TopUpDto
 	{
 		public string RefNo { get; set; }
-		public Agrent Agrent { get; set; }
 		public DateTime ExpireDate { get; set; }
 		public double Money { get; set; }
-		public bool IsUsed { get; set; }
 	}
 }

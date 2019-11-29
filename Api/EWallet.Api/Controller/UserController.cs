@@ -13,9 +13,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EWallet.Api.Controller
 {
-    [Route("[controller]")]
-    [ApiController]
-    public class UserController : ControllerBase
+	//[Authorize]
+	[Route("[controller]")]
+	[ApiController]
+	public class UserController : ControllerBase
     {
 		private IUserService _userService;
 		private ValidateMethods validateMethods;
@@ -24,7 +25,7 @@ namespace EWallet.Api.Controller
 			_userService = userService;
 			validateMethods = new ValidateMethods();
 		}
-		[AllowAnonymous]
+		//[AllowAnonymous]
 		[HttpPost("LogIn")]
 		public IActionResult LogInUser([FromBody]AuthenticateModel model)
 		{
@@ -82,11 +83,12 @@ namespace EWallet.Api.Controller
 			}
 
 		}
-		[AllowAnonymous]
+		//[AllowAnonymous]
 		[HttpPost("CheckAccount")]
 		public IActionResult CheckAccount([FromBody]string email)
 		{
 			string error = "";
+			//string email = "";
 			RespondModel respond = new RespondModel();
 			if (string.IsNullOrEmpty(email))
 			{
@@ -163,7 +165,7 @@ namespace EWallet.Api.Controller
 
 			}
 		}
-		[AllowAnonymous]
+		//[AllowAnonymous]
 		[HttpPost("Register")]
 		public IActionResult Register([FromBody]RegisterModel model)
 		{
