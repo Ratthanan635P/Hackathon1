@@ -11,10 +11,18 @@ namespace EWallet.Domain.Interfaces.Services
 		//  login(email ,password)
 		DetailMarchantDto LogIn(string email, string password);
 		//  GenarateTopup(double money)==>	จะได้ referrence 
-		string GenarateTopup(double money);
+		//string GenarateTopup(double money);
 		//  history(Accountid) => List<Transaction>
 		List<Transactions> History(string email);
 		//  CheckBalance()==>	จะได้ double 
 		double CheckBalance(string email);
+		//  login(email ,password)
+		//DetailAgrentDto LogIn(string email, string password);
+		//  GenarateTopup(double money)==>	จะได้ referrence 
+		//TopUpDto GenarateTopup(double money, string email);
+		//  history(Accountid) => List<Transaction>
+		//List<Transactions> History(string email);
+		//  CheckBalance()==>	จะได้ double 
+		//double CheckBalance(string email);
 	}
 }

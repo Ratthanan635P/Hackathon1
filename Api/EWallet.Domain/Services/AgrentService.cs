@@ -1,5 +1,6 @@
 ﻿using EWallet.Domain.Dtos;
 using EWallet.Domain.Entities;
+using EWallet.Domain.Interfaces.Repositories;
 using EWallet.Domain.Interfaces.Services;
 using System;
 using System.Collections.Generic;
@@ -9,31 +10,44 @@ namespace EWallet.Domain.Services
 {
 	public class AgrentService : IAgrentService
 	{
-		private IAgrentService agrentService;
-		public AgrentService(IAgrentService agrentService)
+		private IAgrentRepository agrentRepository;
+		public AgrentService(IAgrentRepository agrentRepository)
 		{
-			this.agrentService = agrentService;
+			this.agrentRepository = agrentRepository;
 
 		}
 		public double CheckBalance(string email)
 		{
-			double result = agrentService.CheckBalance(email);
+			double result = agrentRepository.CheckBalance(email);
 			return result;
 		}
 
-		public string GenarateTopup(double money)
+		public TopUpDto GenarateTopup(double money,string email)
 		{
-			throw new NotImplementedException();
+			
+			TopUpDto result = agrentRepository.GenarateTopup(money, email);
+			return result;
+			//throw new NotImplementedException();
 		}
 
 		public List<Transactions> History(string email)
 		{
-			throw new NotImplementedException();
+			var result = agrentRepository.History(email);
+			return result;
+			//throw new NotImplementedException();
 		}
 
 		public DetailAgrentDto LogIn(string email, string password)
 		{
-			throw new NotImplementedException();
+			var result = agrentRepository.LogIn(email, password);
+			DetailAgrentDto detailAgrent = new DetailAgrentDto()
+			{ 
+				Id=result.Id,
+				AccountEWallet=result.AccountEWallet,
+				NameShop=result.NameAgrent
+             };
+			return detailAgrent;
+			//throw new NotImplementedException();
 		}
 	}
 }

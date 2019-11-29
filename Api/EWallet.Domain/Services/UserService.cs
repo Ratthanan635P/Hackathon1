@@ -4,6 +4,7 @@ using EWallet.Domain.Interfaces.Repositories;
 using EWallet.Domain.Interfaces.Services;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace EWallet.Domain.Services
@@ -60,6 +61,7 @@ namespace EWallet.Domain.Services
 		{
 			var result = userRepository.History(email);
 			return result;
+			//var result1 = result.GroupBy(x=>x.CreateDate.Month).ToList();
 		}
 
 		public DetailUserAccountDto LogIn(string email, string password)

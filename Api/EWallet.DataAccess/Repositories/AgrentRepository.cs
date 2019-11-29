@@ -31,11 +31,12 @@ namespace EWallet.DataAccess.Repositories
 			}
 		}
 
-		public TopUpDto GenarateTopup(double money,Agrent agrent)
+		public TopUpDto GenarateTopup(double money,string email)
 		{
 			//throw new NotImplementedException();
 			//agrent.Email
 			//	Random random = new Random();
+			var agrent = _context.Agrents.Where(x=>x.Email==email).FirstOrDefault();
 			string refno = RandomCode();
 			GenrateTopUp genrate = new GenrateTopUp() { 
               IsDelete=false,

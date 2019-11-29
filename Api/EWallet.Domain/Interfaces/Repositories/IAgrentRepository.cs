@@ -13,7 +13,7 @@ namespace EWallet.Domain.Interfaces.Repositories
 		//  login(email ,password)
 		Agrent LogIn(string email, string password);
 		//  GenarateTopup(double money)==>	จะได้ referrence 
-		TopUpDto GenarateTopup(double money,Agrent agrent);
+		TopUpDto GenarateTopup(double money,string email);
 		//  history(Accountid) => List<Transaction>
 		List<Transactions> History(string email);
 		//  CheckBalance()==>	จะได้ double 
