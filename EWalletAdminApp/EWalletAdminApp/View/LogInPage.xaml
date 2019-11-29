@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="EWalletAdminApp.View.LogInPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Entry">
+                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <!--<Setter Property="VerticalOptions" Value="CenterAndExpand"/>-->
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Orange"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <!--<Setter Property="VerticalOptions" Value="CenterAndExpand"/>-->
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Padding="0">
+            <!--<Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />-->
+            <Image Source="walle96" HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
+            <Entry Placeholder="Username"/>
+            <Entry Placeholder="Password"/>
+            <Button Text="SignIn" HorizontalOptions="Center"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
