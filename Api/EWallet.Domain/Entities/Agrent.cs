@@ -9,7 +9,7 @@ namespace EWallet.Domain.Entities
 	public class Agrent : BaseEntities
 	{
 		public byte[] ImageProfile { get; set; }
-		public string NameShop { get; set; }
+		public string NameAgrent { get; set; }
 		public string Email { get; set; }
 		public string Password { get; set; }
 		public string Salt { get; set; }

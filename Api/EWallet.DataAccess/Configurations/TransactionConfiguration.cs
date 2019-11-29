@@ -8,9 +8,9 @@ using System.Text;
 
 namespace EWallet.DataAccess.Configurations
 {
-	public class TransactionConfiguration : IEntityTypeConfiguration<Transaction>
+	public class TransactionConfiguration : IEntityTypeConfiguration<Transactions>
 	{
-		public void Configure(EntityTypeBuilder<Transaction> builder)
+		public void Configure(EntityTypeBuilder<Transactions> builder)
 		{
 			//	throw new NotImplementedException();
 			//builder.HasOne(x => x.TransactionInformation).WithMany(x => x.).HasForeignKey(x => x.);

@@ -14,7 +14,7 @@ namespace EWallet.DataAccess.Contexts
 		public DbSet<Agrent> Agrents { get; set; }
 		public DbSet<Marchant> Marchants { get; set; }
 		public DbSet<GenrateTopUp> GenrateTopUp { get; set; }
-		public DbSet<Transaction> Transactions { get; set; }
+		public DbSet<Transactions> Transactions { get; set; }
 		public DbSet<UserOTP> UserOTPs { get; set; }
 
 
@@ -28,6 +28,11 @@ namespace EWallet.DataAccess.Contexts
 		//	modelBuilder.Entity<Transaction>()
 		
 			modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+			modelBuilder.Entity<User>().HasQueryFilter(e => EF.Property<bool>(e, "IsDeleted") == false);
+			modelBuilder.Entity<Marchant>().HasQueryFilter(e => EF.Property<bool>(e, "IsDeleted") == false);
+			modelBuilder.Entity<Agrent>().HasQueryFilter(e => EF.Property<bool>(e, "IsDeleted") == false);
+			modelBuilder.Entity<AccountEWallet>().HasQueryFilter(e => EF.Property<bool>(e, "IsDeleted") == false);
+			modelBuilder.Entity<Transactions>().HasQueryFilter(e => EF.Property<bool>(e, "IsDeleted") == false);
 		}
 	}
 }

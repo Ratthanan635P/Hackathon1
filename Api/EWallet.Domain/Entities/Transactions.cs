@@ -6,7 +6,7 @@ using System.Text;
 
 namespace EWallet.Domain.Entities
 {
-	public class Transaction:BaseEntities
+	public class Transactions:BaseEntities
 	{
 		public string RefNo { get; set; } //Agent+Expire+จำนวนเงิน
 	

@@ -13,7 +13,7 @@ namespace EWallet.Domain.Entities
 		public DateTime UpdateDate { get; set; }
 		public int UpdateBy { get; set; }
 		public bool IsDelete { get; set; }
-		public ICollection<Transaction> TransactionReceive { get; set; }
-		public ICollection<Transaction> TransactionSender { get; set; }
+		public ICollection<Transactions> TransactionReceive { get; set; }
+		public ICollection<Transactions> TransactionSender { get; set; }
 	}
 }
