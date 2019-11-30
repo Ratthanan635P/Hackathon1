@@ -14,9 +14,9 @@ namespace EWalletAdminApp.ViewModel
 		public ICommand HistoryCommand { get; set; }
 		public HomeViewModel()
 		{
-			HomeCommand = new Command(GotoHomePage, () => false);
-			TopUpCommand = new Command(GotoTopUpPage, () => false);
-			HistoryCommand = new Command(GotoHistoryPage, () => false);
+			HomeCommand = new Command(GotoHomePage, () => true);
+			TopUpCommand = new Command(GotoTopUpPage, () => true);
+			HistoryCommand = new Command(GotoHistoryPage, () => true);
 		}
 		private async void GotoHomePage()
 		{					

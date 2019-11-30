@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="EWalletAdminApp.View.TopUpPage"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White">
     <!--<ContentPage.BindingContext>
         <viewmodel:LogInViewModel/>
     </ContentPage.BindingContext>-->
@@ -13,8 +14,7 @@
         <ResourceDictionary>
             <Style TargetType="Entry">
                 <Setter Property="BackgroundColor" Value="Red"/>
-                <!--<Setter Property="HorizontalOptions" Value="CenterAndExpand"/>-->
-                <!--<Setter Property="VerticalOptions" Value="CenterAndExpand"/>-->
+         
             </Style>
             <Style TargetType="Button">
                 <Setter Property="BackgroundColor" Value="Orange"/>
@@ -29,57 +29,34 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <ScrollView>
-            <Grid>
-                <StackLayout>
-                    <StackLayout HeightRequest="100"
-                    />
-                    <Image x:Name="Img_Logo" Source="walle96.png"                  
-                       HorizontalOptions="CenterAndExpand"
-                       Opacity ="1"
-                       IsVisible="True"
-                       HeightRequest="120"
-                       WidthRequest="120"
-                   />
-                    <StackLayout HeightRequest="20"/>
-                    <Label 
-                    x:Name="LbErrorMessage"
-                    FontAttributes="None"
-                   TextColor="{StaticResource P_RedColor}"
-                   Margin="40,0"
-                   WidthRequest="250"
-                   Text="ddd"
-                   IsVisible="False"/>
-                    <Frame x:Name="fEmail" IsVisible="True"  >
-                        <StackLayout Orientation="Vertical" Spacing="0">
-                            <Entry x:Name="EntryEmail"  IsPassword="False"
-                             Margin="10,0"
-                            ReturnType="Next"
-                          Placeholder="Email"
-                           TextColor="{StaticResource P_EntryTextColor}"                          
-                            />
-                        </StackLayout>
-                    </Frame>
-                    <Label Text="ErrorPasswordMessage" 
-                   TextColor="Red"
-                    Margin="40,0"
-                   IsVisible="False"/>
 
-                    <Button x:Name="BtnLogIn"
-                        Text="Sign In"                  
-                        Margin="40,5,40,5"
+            <StackLayout Padding="0,0,0,5" >
+                <StackLayout HeightRequest="100" />
+      
+            <StackLayout HeightRequest="10"/>
+            <Frame  IsVisible="True" 
+                        CornerRadius="0" BackgroundColor="Azure" 
+                       BorderColor="LightGray"
+                       HasShadow="False" ></Frame>
+
+
+
+            <Button   Text="บันทึก"                  
+                        Margin="20,0,20,0"
+                        IsVisible="True"
+                        VerticalOptions="EndAndExpand"                       
+                     />
+                
+            <Button   Text="กลับสู่หน้าหลัก"                  
+                        Margin="20,0,20,15"
                         IsVisible="True"
                        VerticalOptions="End"  
+                            BorderColor="LightGray"
+                           BackgroundColor="White"
+                            TextColor="Orange"
+                            BorderWidth="1"
                      />
-                    <Button x:Name="BtnBack"
-                        Text="Sign In"                  
-                        Margin="40,5,40,5"
-                        IsVisible="True"
-                       VerticalOptions="End"  
-                     />
-                </StackLayout>
-               
-            </Grid>
-        </ScrollView>
+            </StackLayout>
+       
     </ContentPage.Content>
 </ContentPage>

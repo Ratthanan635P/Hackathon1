@@ -15,54 +15,60 @@
         <ResourceDictionary>
             <Style TargetType="Frame">
                 <Setter Property="Margin" Value="8"/>
-                <Setter Property="BorderColor" Value="LightGray"/>
+                <Setter Property="BorderColor" Value="White"/>
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
         <Grid>
             <StackLayout>
-                <Grid HeightRequest="300">
+                <Grid HeightRequest="300" >
                     <Image Source="backgroundCrop" Aspect="AspectFill"/>
-                    <StackLayout Orientation="Horizontal">
-                        <Image Source="camera100" />
-                        <StackLayout>
-                            <Label Text="ยินดดีต้อนรับ ดำรงเดช"/>
-                            <Label Text="สวัสดีตอนเช้า"/>
+                    <StackLayout Orientation="Horizontal" Padding="20">
+                        <Image Source="camera100" Aspect="AspectFit" HeightRequest="30" />
+                        <StackLayout VerticalOptions="CenterAndExpand">
+                            <Label FontSize="Title" Text="ยินดีต้อนรับ ดำรงเดช mfkkfkkkfllnkk" MaxLines="1" LineBreakMode="TailTruncation" HorizontalOptions="Start" 
+                                   TextColor="White" 
+                                   FontAttributes="Bold"/>
+                            <Label Text="สวัสดีตอนเช้า" HorizontalOptions="Start" FontSize="Medium"  TextColor="White"/>
                         </StackLayout>
                     </StackLayout>
                 </Grid>
-                <Grid>
+                <Grid Padding="10" HorizontalOptions="CenterAndExpand">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
+                        <RowDefinition Height="160" />
+                        <RowDefinition Height="160" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Frame Grid.Column="0" Grid.Row="0">
-                        <StackLayout>
-                            <Image  Source="qrcode100"  />
-                            <Label Text="สร้าง QR Code"/>
+                    <Frame Grid.Column="0" Grid.Row="0" >
+                        <StackLayout VerticalOptions="CenterAndExpand" Opacity="0.4">
+                            <Image  Source="qrcode100" Aspect="AspectFit" HeightRequest="50" />
+                            <Label Text="สร้าง QR code" HorizontalTextAlignment="Center" TextColor="Gray"/>
                         </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding TopUpCommand}"/>
+                        </Frame.GestureRecognizers>
                     </Frame>
                     <Frame Grid.Column="0" Grid.Row="1">
-                        <StackLayout>
-                            <Image  Source="qrcode100"  />
-                            <Label Text="ComingSoon"/>
+                        <StackLayout VerticalOptions="CenterAndExpand" Opacity="0.4">
+                            <Image  Source="android" Aspect="AspectFit" HeightRequest="50" />
+                            <Label Text="Coming soon" HorizontalTextAlignment="Center" TextColor="Gray"/>
                         </StackLayout>
+                      
                     </Frame> 
                     <Frame Grid.Column="1" Grid.Row="0">
-                        <StackLayout>
-                            <Image  Source="qrcode100"  />
-                            <Label Text="ComingSoon"/>
+                        <StackLayout VerticalOptions="CenterAndExpand" Opacity="0.4">
+                            <Image  Source="android" Aspect="AspectFit" HeightRequest="50" />
+                            <Label Text="Coming soon" HorizontalTextAlignment="Center" TextColor="Gray"/>
                         </StackLayout>
                     </Frame>
                     <Frame Grid.Column="1" Grid.Row="1">
-                        <StackLayout>
-                            <Image  Source="qrcode100"  />
-                            <Label Text="ComingSoon"/>
+                        <StackLayout VerticalOptions="CenterAndExpand" Opacity="0.4">
+                            <Image  Source="android" Aspect="AspectFit" HeightRequest="50" />
+                            <Label Text="Coming soon" HorizontalTextAlignment="Center" TextColor="Gray"/>
                         </StackLayout>
                     </Frame>
                 </Grid>

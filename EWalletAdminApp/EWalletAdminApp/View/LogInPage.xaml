@@ -12,11 +12,9 @@
     </ContentPage.BindingContext>
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style TargetType="Entry">
+            <!--<Style TargetType="Entry">
                 <Setter Property="BackgroundColor" Value="Red"/>
-                <!--<Setter Property="HorizontalOptions" Value="CenterAndExpand"/>-->
-                <!--<Setter Property="VerticalOptions" Value="CenterAndExpand"/>-->
-            </Style>
+            </Style>-->
             <Style TargetType="Button">
                 <Setter Property="BackgroundColor" Value="Orange"/>
             </Style>
@@ -56,8 +54,8 @@
                             <Entry x:Name="EntryEmail"  IsPassword="False"
                              Margin="10,0"
                             ReturnType="Next"
-                          Placeholder="Email"
-                           TextColor="{StaticResource P_EntryTextColor}"                          
+                          Placeholder="Username"
+                           TextColor="{StaticResource P_EntryTextColor}"                                     
                             />
                         </StackLayout>
                     </Frame>
@@ -71,7 +69,7 @@
                             <Entry  x:Name="EntryPassword" IsPassword="True"
                              Margin="10,0"
                                 Text="{Binding LogInModel.Password}"
-                                    Placeholder="Password"
+                                Placeholder="Password"
                                 TextColor="{StaticResource P_EntryTextColor}"
                             ReturnType="Done"
                                
@@ -86,22 +84,7 @@
                         IsVisible="True"
                         Command="{Binding LogInCommand}"
                         >
-                        <!--<Button.Triggers>
-                            <MultiTrigger TargetType="Button">
-                                <MultiTrigger.Conditions>
-                                    <BindingCondition Binding="{Binding Source={x:Reference EntryEmail},
-                              Path=Text,
-                              Converter={StaticResource dataHasBeenEntered}}"
-                          Value="true" />
-                                    <BindingCondition Binding="{Binding Source={x:Reference EntryPassword},
-                              Path=Text.Length,
-                              Converter={StaticResource dataHasPassword}}"
-                          Value="true" />
-                                </MultiTrigger.Conditions>
-                                <Setter Property="IsEnabled" Value="True" />
-                                <Setter Property="BackgroundColor" Value="{StaticResource P_PimaryMainColor}"/>
-                            </MultiTrigger>
-                        </Button.Triggers>-->
+                      
                     </Button>
                   
                 </StackLayout>
