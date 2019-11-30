@@ -21,10 +21,12 @@ namespace EWalletAdminApp.ViewModel
 		private async void GotoHomePage()
 		{					
 		    await App.Current.MainPage.Navigation.PushAsync(new TabHomePage());					
-		}private async void GotoTopUpPage()
+		}
+       private async void GotoTopUpPage()
 		{					
 		    await App.Current.MainPage.Navigation.PushAsync(new TopUpPage());					
-		}private async void GotoHistoryPage()
+		}
+        private async void GotoHistoryPage()
 		{					
 		    await App.Current.MainPage.Navigation.PushAsync(new HistoryPage());					
 		}

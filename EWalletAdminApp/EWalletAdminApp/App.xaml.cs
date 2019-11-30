@@ -1,4 +1,5 @@
 ﻿using EWalletAdminApp.View;
+using EWalletAdminApp.View.PopUp;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

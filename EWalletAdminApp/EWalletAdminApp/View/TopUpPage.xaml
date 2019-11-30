@@ -3,19 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewmodel="clr-namespace:EWalletAdminApp.ViewModel"
              mc:Ignorable="d"
              x:Class="EWalletAdminApp.View.TopUpPage"
-             NavigationPage.HasNavigationBar="False"
-             BackgroundColor="White">
-    <!--<ContentPage.BindingContext>
-        <viewmodel:LogInViewModel/>
-    </ContentPage.BindingContext>-->
+             NavigationPage.HasBackButton="False"           
+             BackgroundColor="White"
+              >
+    <ContentPage.BindingContext>
+        <viewmodel:TopUpPageViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style TargetType="Entry">
-                <Setter Property="BackgroundColor" Value="Red"/>
-         
-            </Style>
+            <!--<Style TargetType="Entry">
+                <Setter Property="BackgroundColor" Value="Red"/>       
+            </Style>-->
             <Style TargetType="Button">
                 <Setter Property="BackgroundColor" Value="Orange"/>
             </Style>
@@ -28,35 +29,79 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
+    <NavigationPage.TitleView>
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Text="เติมเงิน" Grid.Column="1" 
+                   HorizontalTextAlignment="Center"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="Black"/>
+            <Image Grid.Column="0" Source="left100"  VerticalOptions="Center" Aspect="AspectFit" 
+                   HeightRequest="30"
+                    />
+        </Grid>
+    </NavigationPage.TitleView>
     <ContentPage.Content>
-
-            <StackLayout Padding="0,0,0,5" >
-                <StackLayout HeightRequest="100" />
-      
-            <StackLayout HeightRequest="10"/>
-            <Frame  IsVisible="True" 
-                        CornerRadius="0" BackgroundColor="Azure" 
-                       BorderColor="LightGray"
-                       HasShadow="False" ></Frame>
-
-
-
-            <Button   Text="บันทึก"                  
-                        Margin="20,0,20,0"
-                        IsVisible="True"
-                        VerticalOptions="EndAndExpand"                       
-                     />
-                
-            <Button   Text="กลับสู่หน้าหลัก"                  
-                        Margin="20,0,20,15"
-                        IsVisible="True"
-                       VerticalOptions="End"  
-                            BorderColor="LightGray"
-                           BackgroundColor="White"
-                            TextColor="Orange"
-                            BorderWidth="1"
-                     />
-            </StackLayout>
        
+            <StackLayout Padding="0,0,0,5" >
+            
+                <StackLayout HeightRequest="50" />
+            <ScrollView>
+                <StackLayout >
+
+                <Image Source="qrcode100" Aspect="AspectFit"  
+                           HeightRequest="160"
+                           WidthRequest="160"
+                           Opacity="0.4"/>
+                <Label Text="ใส่จำนวนเงิน" HorizontalOptions="CenterAndExpand" 
+                       HorizontalTextAlignment="Center"
+                       FontSize="25"
+                       FontAttributes="Bold"
+                       TextColor="Gray"/>
+                <Grid HorizontalOptions="CenterAndExpand" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="15"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Entry Grid.Column="0"
+                           Grid.RowSpan="3" 
+                           
+                           Placeholder="0.00"
+                           HorizontalOptions="EndAndExpand"
+                           HorizontalTextAlignment="End"
+                           VerticalOptions="StartAndExpand"
+                           FontSize="40"
+                           
+                           TextColor="Gray"
+                           Keyboard="Numeric"
+                          
+                           />
+                    <Label Text="THB" FontSize="10" 
+                           Grid.Column="1" Grid.Row="1"
+                            TextColor="Gray"/>
+                </Grid>
+               
+            </StackLayout>
+        </ScrollView>
+        <Button   Text="ตกลง"                  
+                        Margin="20,0,20,10"
+                        IsVisible="True"
+                        VerticalOptions="EndAndExpand" 
+                      BackgroundColor="DarkOrange"
+                  Command="{Binding CommitCommand}"
+                     />
+
+            </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>

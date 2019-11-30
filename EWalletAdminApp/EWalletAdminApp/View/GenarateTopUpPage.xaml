@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="EWalletAdminApp.View.GenarateTopUpPage"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White">
     <!--<ContentPage.BindingContext>
         <viewmodel:LogInViewModel/>
     </ContentPage.BindingContext>-->
@@ -18,9 +19,12 @@
             </Style>
             <Style TargetType="Button">
                 <Setter Property="BackgroundColor" Value="Orange"/>
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="Margin" Value="12,0,12,0" />
             </Style>
             <Style TargetType="Frame" >
                 <Setter Property="BorderColor" Value="Transparent" />
+                <Setter Property="Margin" Value="10,0,10,0" />
             </Style>
             <Style TargetType="Label" >
                 <Setter Property="TextColor" Value="{StaticResource P_PimaryMainColor}"/>
@@ -30,56 +34,88 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView>
-            <Grid>
-                <StackLayout>
-                    <StackLayout HeightRequest="100"
+            <Grid Padding="0" ColumnSpacing="0" RowSpacing="0">
+                <StackLayout Padding="0">
+                    <StackLayout HeightRequest="50"
                     />
-                    <Image x:Name="Img_Logo" Source="walle96.png"                  
+                    <Frame  Padding="0"
+                            BorderColor="LightGray"
+                             CornerRadius="0" >
+                        <StackLayout>
+                        <Image  Source="qrcode100.png"                  
+                       HorizontalOptions="CenterAndExpand"
+                                
+                       Opacity ="1"
+                       IsVisible="True"
+                       HeightRequest="300"
+                       WidthRequest="300"
+                     />
+                            <Grid>
+                            <Frame BorderColor="LightGray"
+                                   HasShadow="True" CornerRadius="50"  
+                                   WidthRequest="40" HeightRequest="40"
+                                   IsClippedToBounds="True"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                   Padding="10">
+                                    <!--<Frame IsClippedToBounds="True" 
+                                           BackgroundColor="Tomato" 
+                                        CornerRadius="50"
+                                         HeightRequest="35"
+                                           WidthRequest="35"
+                                        HorizontalOptions="Center"
+                                         VerticalOptions="Center"
+                                         HasShadow="True"
+                                           Padding="10">-->
+                                        <Image  Source="account.png"                               
                        HorizontalOptions="CenterAndExpand"
                        Opacity ="1"
                        IsVisible="True"
-                       HeightRequest="120"
-                       WidthRequest="120"
-                   />
-                    <StackLayout HeightRequest="20"/>
-                    <Label 
-                    x:Name="LbErrorMessage"
-                    FontAttributes="None"
-                   TextColor="{StaticResource P_RedColor}"
-                   Margin="40,0"
-                   WidthRequest="250"
-                   Text="ddd"
-                   IsVisible="False"/>
-                    <Frame x:Name="fEmail" IsVisible="True"  >
-                        <StackLayout Orientation="Vertical" Spacing="0">
-                            <Entry x:Name="EntryEmail"  IsPassword="False"
-                             Margin="10,0"
-                            ReturnType="Next"
-                          Placeholder="Email"
-                           TextColor="{StaticResource P_EntryTextColor}"                          
-                            />
+                       HeightRequest="40"
+                       />
+                         </Frame>
+                            </Grid>
+                            <Label Text="Agrent A"  
+                                   HorizontalOptions="CenterAndExpand"
+                                   
+                                   TextColor="Gray"/>
+                            <Frame BackgroundColor="Orange" 
+                                   CornerRadius="15"  
+                                   HeightRequest="15" 
+                                   HorizontalOptions="CenterAndExpand"
+                                   VerticalOptions="CenterAndExpand">
+                                <Label Text="Top up" TextColor="White" 
+                                       HorizontalOptions="CenterAndExpand" 
+                                       FontSize="Micro"/>
+                            </Frame>
+                            <Label Text="1,000 THB"  
+                                   HorizontalOptions="CenterAndExpand" 
+                                   FontSize="40"
+                                   TextColor="Gray"/>
+                            <Label Text="Ref. dgdgdhgfhfghfgjgjgsfgs"  
+                                   HorizontalOptions="CenterAndExpand"
+                                   TextColor="Gray"
+                                   FontSize="Micro"/>
+                            <Label Text="Expired 12 Jan 2019 12:45:12"
+                                   FontSize="Micro"
+                                   HorizontalOptions="CenterAndExpand"
+                                   TextColor="Gray"/>
+                            <Label Text=""
+                                   FontSize="Micro"
+                                   HorizontalOptions="CenterAndExpand"
+                                   TextColor="Gray"/>
                         </StackLayout>
                     </Frame>
-                    <Label Text="ErrorPasswordMessage" 
-                   TextColor="Red"
-                    Margin="40,0"
-                   IsVisible="False"/>
-
-                    <Button x:Name="BtnLogIn"
-                        Text="Sign In"                  
-                        Margin="40,5,40,5"
-                        IsVisible="True"
-                       VerticalOptions="End"  
-                     />
-                    <Button x:Name="BtnBack"
-                        Text="Sign In"                  
-                        Margin="40,5,40,5"
-                        IsVisible="True"
-                       VerticalOptions="End"  
-                     />
-
                 </StackLayout>
-
+                <StackLayout VerticalOptions="End">
+                      <Button 
+                        Text="กลับสู่หน้าหลัก"                  
+                        Margin="20,5,20,5"
+                        IsVisible="True"
+                        VerticalOptions="End" 
+                          Command="{Binding CommitCommand}"
+                     />
+                </StackLayout>
             </Grid>
         </ScrollView>
     </ContentPage.Content>
