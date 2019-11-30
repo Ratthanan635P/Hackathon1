@@ -29,6 +29,8 @@ namespace EWallet.Domain.Services
 			return result;
 		}
 
+
+
 		public bool CheckUserAccount(string email)
 		{
 			bool result = userRepository.CheckUserAccount(email);
@@ -87,10 +89,27 @@ namespace EWallet.Domain.Services
 			return result;
 		}
 
+
 		public bool Register(RegisterUserDto registerUserDto)
 		{
 			
 			var result = userRepository.Register(registerUserDto);
+			return result;
+		}
+
+		public bool TopUp(string emailSender, string refno, string emailReceive)
+		{
+			var result = userRepository.TopUp(emailSender, refno, emailReceive);
+			return result;
+		}
+		public bool Payment(string emailSender, double money, string emailReceive)
+		{
+			var result = userRepository.Payment(emailSender,money,emailReceive);
+			return result;
+		}
+		public bool CheckTopUp(string refno)
+		{
+			var result = userRepository.CheckTopUp(refno);
 			return result;
 		}
 	}

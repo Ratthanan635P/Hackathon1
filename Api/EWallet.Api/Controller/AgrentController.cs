@@ -122,7 +122,7 @@ namespace EWallet.Api.Controller
 
 		}
 		[HttpPost("TopUp")]
-		public IActionResult TopUp([FromBody]TopUpModel model)
+		public IActionResult TopUp([FromBody]GenTopUpModel model)
 		{
 			string error = "";
 			//if (string.IsNullOrEmpty(email))

@@ -26,6 +26,10 @@ namespace EWallet.Domain.Interfaces.Services
 		double CheckBalance(string email);
 		//
 		List<Transactions> History(string email);
-
+		bool TopUp(string emailSender, string refno, string emailReceive);
+		//
+		bool Payment(string emailSender, double money, string emailReceive);
+		//
+		bool CheckTopUp(string refno);
 	}
 }

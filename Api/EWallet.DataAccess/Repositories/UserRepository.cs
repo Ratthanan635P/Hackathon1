@@ -37,7 +37,7 @@ namespace EWallet.DataAccess.Repositories
 
 		public double CheckBalance(string email)
 		{
-			var user = _context.Users.Where(x => x.Email == email && x.IsDelete == false).FirstOrDefault();
+			var user = _context.Users.Include(x=>x.AccountEWallet).Where(x => x.Email == email && x.IsDelete == false).FirstOrDefault();
 			if (user == null)
 			{
 				return 0;
@@ -47,6 +47,8 @@ namespace EWallet.DataAccess.Repositories
 				return  user.AccountEWallet.Balance;
 			}			
 		}
+
+		
 
 		public bool CheckUserAccount(string email)
 		{
@@ -61,7 +63,6 @@ namespace EWallet.DataAccess.Repositories
 			}
 			
 		}
-
 		public bool EditDataUser(DetailUserAccountDto data)
 		{
 			//throw new NotImplementedException();
@@ -116,6 +117,9 @@ namespace EWallet.DataAccess.Repositories
 			_context.SaveChanges();
 			return true;
 		}
+
+	
+
 		public bool Register(RegisterUserDto registerUserDto)
 		{
 
@@ -158,7 +162,8 @@ namespace EWallet.DataAccess.Repositories
 				}
 				catch (Exception ex)
 				{
-					break;
+					string error= ex.Message;
+	               break;
 				}
 			}
 			AccountEWallet account = new AccountEWallet()
@@ -174,11 +179,101 @@ namespace EWallet.DataAccess.Repositories
 			_context.AccountEWallets.Add(account);
 			_context.SaveChanges();
 			AccountEWallet AccountEWalletsId= _context.AccountEWallets.FirstOrDefault(x => x.Email == registerUserDto.Email);
-
 			var updateAccountId = _context.Users.FirstOrDefault(x => x.Email == registerUserDto.Email);
 			updateAccountId.AccountEWallet = AccountEWalletsId;
 			_context.SaveChanges();
 			return true;
+		}
+		public bool TopUp(string emailSender, string refno, string emailReceive)
+		{
+			var agrent = _context.Agrents.FirstOrDefault(x => x.Email == emailSender);
+			if (agrent == null)
+			{
+				return false;
+            }
+			var Customer = _context.Users.FirstOrDefault(x => x.Email == emailReceive);
+			if (Customer == null)
+			{
+				return false;
+			}
+			var topUp = _context.GenrateTopUp.FirstOrDefault(x => x.RefNo == refno);
+			//var Customer = _context.Users.FirstOrDefault(x => x.Email == emailReceive);
+			if (topUp.ExpireDate <= DateTime.Now)
+			{
+				return false;
+			}
+			Transactions transactions = new Transactions()
+			{
+				 CreateDate=DateTime.Now,
+				 IsDelete=false,
+				 Money= topUp.Money,
+				 ReceiveTransaction=Enums.Transactions.TopUp,
+				 SenderTransaction = Enums.Transactions.TopUp,
+				 RefNo="T"+topUp.RefNo,
+				 Receive = Customer.AccountEWallet,
+				 Sender = agrent.AccountEWallet,
+				 UpdateDate = DateTime.Now,
+				 UpdateBy = Customer.Id
+			};
+			_context.Transactions.Add(transactions);
+			Customer.AccountEWallet.Balance += topUp.Money;
+			Customer.UpdateDate = transactions.CreateDate;
+			topUp.IsUsed = true;
+			_context.SaveChanges();
+			return true;			
+		}
+		public bool Payment(string emailSender, double money, string emailReceive)
+		{
+			
+			var customer = _context.Users.Include(x=>x.AccountEWallet).FirstOrDefault(x => x.Email == emailSender);
+			if (customer == null)
+			{
+				return false;
+			}
+			var marchant = _context.Marchants.Include(x => x.AccountEWallet).FirstOrDefault(x => x.Email == emailReceive);
+			if (marchant == null)
+			{
+				return false;
+			}
+			var marchantAccount = _context.AccountEWallets.FirstOrDefault(x => x.Email == emailReceive);
+			if (marchantAccount == null)
+			{
+				return false;
+			}
+			string UpperId = (DateTime.Now.Year+""+ DateTime.Now.Month+""+ DateTime.Now.Date).ToString();
+			int MidId = random.Next(100, 999);
+			int LowperId = random.Next(1000, 9999);
+			string idPaymaent = UpperId + MidId.ToString() + LowperId.ToString();
+			Transactions transactions = new Transactions()
+			{
+				CreateDate = DateTime.Now,
+				IsDelete = false,
+				Money = money,
+				ReceiveTransaction = Enums.Transactions.Receive,
+				SenderTransaction = Enums.Transactions.Paymant,
+				RefNo = "P"+ idPaymaent,
+				Receive = customer.AccountEWallet,
+				Sender = marchantAccount,
+				UpdateDate = DateTime.Now,
+				UpdateBy = customer.Id
+			};
+			_context.Transactions.Add(transactions);
+			customer.AccountEWallet.Balance -= money;
+			customer.UpdateDate = transactions.CreateDate;
+		    marchantAccount.Balance += money;
+			marchantAccount.UpdateDate = transactions.CreateDate;
+			_context.SaveChanges();
+			return true;
+		}
+		public bool CheckTopUp(string refno)
+		{
+			var topUp = _context.GenrateTopUp.FirstOrDefault(x => x.RefNo == refno);
+			//var Customer = _context.Users.FirstOrDefault(x => x.Email == emailReceive);
+			if (topUp.ExpireDate >= DateTime.Now)
+			{
+				return true;
+			}
+			return false;
 		}
 	}
 }

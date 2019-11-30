@@ -37,6 +37,10 @@ namespace EWallet.DataAccess.Repositories
 			//agrent.Email
 			//	Random random = new Random();
 			var agrent = _context.Agrents.Where(x=>x.Email==email).FirstOrDefault();
+			if (agrent==null)
+			{
+				return null;
+              }
 			string refno = RandomCode();
 			GenrateTopUp genrate = new GenrateTopUp() { 
               IsDelete=false,

@@ -371,5 +371,143 @@ namespace EWallet.Api.Controller
 
 		}
 		//double CheckBalance(string email);
+		[HttpPost("TopUp")]
+		public IActionResult TopUp([FromBody]TopUpModel model)
+		{
+			string error = "";
+			if (string.IsNullOrEmpty(model.Receive))
+			{
+				error = " Email Receive is null";
+				return BadRequest(new { message = error });
+			}
+			if (!((validateMethods.CheckRegEx_UserName(model.Receive)) && (model.Receive.Length > validateMethods.LengthEmail) && (model.Receive.Length < 50)))
+			{
+				error = " Email Receive is Invalid!";
+				return BadRequest(new { message = error });
+			}
+			
+			if (string.IsNullOrEmpty(model.SenderId))
+			{
+				error = " Email sender is null";
+				return BadRequest(new { message = error });
+			}
+			if (!((validateMethods.CheckRegEx_UserName((model.SenderId)) && ((model.SenderId.Length > validateMethods.LengthEmail) && (model.SenderId.Length < 50)))))
+			{
+				error = " Email sender is Invalid!";
+				return BadRequest(new { message = error });
+			}
+			//Call Api Check email and Password
+
+			if (error == "")
+			{
+				try
+				{
+					var user = _userService.TopUp(model.SenderId, model.RefNo,model.SenderId);
+					if (user == false)
+						return BadRequest(new { message = "Not Found" });
+					return Ok(user);
+				}
+				catch (Exception ex)
+				{
+					error = ex.Message;
+				}
+				return BadRequest(new { message = error });
+			}
+			else
+			{
+				return BadRequest(new { message = error });
+
+			}
+		}
+
+		[HttpPost("Payment")]
+		public IActionResult TopUp([FromBody]TransationsModel model)
+		{
+			string error = "";
+			if (string.IsNullOrEmpty(model.Receive))
+			{
+				error = " Email Receive is null";
+				return BadRequest(new { message = error });
+			}
+			if (!((validateMethods.CheckRegEx_UserName(model.Receive)) && (model.Receive.Length > validateMethods.LengthEmail) && (model.Receive.Length < 50)))
+			{
+				error = " Email Receive is Invalid!";
+				return BadRequest(new { message = error });
+			}
+
+			if (string.IsNullOrEmpty(model.SenderId))
+			{
+				error = " Email sender is null";
+				return BadRequest(new { message = error });
+			}
+			if (!((validateMethods.CheckRegEx_UserName((model.SenderId)) && ((model.SenderId.Length > validateMethods.LengthEmail) && (model.SenderId.Length < 50)))))
+			{
+				error = " Email sender is Invalid!";
+				return BadRequest(new { message = error });
+			}
+			//Call Api Check email and Password
+
+			if (error == "")
+			{
+				try
+				{
+					var user = _userService.Payment(model.SenderId, model.Money, model.SenderId);
+					if (user == false)
+						return BadRequest(new { message = "Not Found" });
+					return Ok(user);
+				}
+				catch (Exception ex)
+				{
+					error = ex.Message;
+				}
+				return BadRequest(new { message = error });
+			}
+			else
+			{
+				return BadRequest(new { message = error });
+
+			}
+		}
+		[HttpPost("CheckTopUp")]
+		public IActionResult CheckTopUp([FromBody]string refNo)
+		{
+			string error = "";
+			if (string.IsNullOrEmpty(refNo))
+			{
+				error = " Refno is null";
+				return BadRequest(new { message = error });
+			}
+			if(refNo.Length < 50)
+			{
+				error = " RefNo is Long";
+				return BadRequest(new { message = error });
+			}
+
+			//Call Api Check email and Password
+
+			if (error == "")
+			{
+				try
+				{
+					var user = _userService.CheckTopUp(refNo);
+					if (user == false)
+						return BadRequest(new { message = "Not Found" });
+					return Ok(user);
+				}
+				catch (Exception ex)
+				{
+					error = ex.Message;
+				}
+				return BadRequest(new { message = error });
+			}
+			else
+			{
+				return BadRequest(new { message = error });
+
+			}
+
+		}
+
+		
 	}
 }

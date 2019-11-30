@@ -5,10 +5,9 @@ using System.Threading.Tasks;
 
 namespace EWallet.Api.Models.Commands
 {
-	public class TopUpModel
+	public class GenTopUpModel
 	{
-		public string RefNo { get; set; }
-		public string SenderId { get; set; }
-		public string Receive { get; set; }
+		public double Money { get; set; }
+		public string AgrentId { get; set; }
 	}
 }
