@@ -6,6 +6,45 @@
              mc:Ignorable="d"
              x:Class="EWalletAdminApp.App">
     <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="P_PimaryColor">#E7EFEF</Color>
+            <Color x:Key="P_RedColor">Red</Color>
+            <Color x:Key="P_PimaryMainColor">#1A6B69</Color>
+            <Color x:Key="P_WhiteColor">#FFFFFF</Color>
+            <Color x:Key="P_EntryTextColor">Black</Color>
+            <Style TargetType="Frame" >
+                <Setter Property="Margin" Value="40,2" />
+                <Setter Property="HasShadow" Value="True" />
+                <Setter Property="BorderColor" Value="Gray" />
+                <Setter Property="Padding" Value="10,5" />
+                <Setter Property="CornerRadius" Value="5"/>
+      
 
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="Margin" Value="40,0"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource P_PimaryColor}"/>
+                <Setter Property="TextColor" Value="{StaticResource P_WhiteColor}"/>
+                <Setter Property="FontSize" Value="24"/>
+                <Setter Property="IsEnabled" Value="True"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="CornerRadius" Value="5" />
+
+            </Style>
+            <Style TargetType="Label" >
+                <!--<Setter Property="FontAttributes" Value="Bold"/>-->
+                <Setter Property="TextColor" Value="{StaticResource P_PimaryMainColor}"/>
+                <Setter Property="FontSize" Value="18"/>
+                <!--<Setter Property="Margin" Value="20,10" />-->
+                <!--<Setter Property="TextDecorations" Value="Underline" />
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>-->
+            </Style>
+            <Style TargetType="Entry">
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="TextColor" Value="{StaticResource P_PimaryMainColor}"/>
+                <Setter Property="Margin" Value="0" />
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

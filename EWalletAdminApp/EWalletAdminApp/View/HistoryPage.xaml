@@ -3,13 +3,131 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewmodel="clr-namespace:EWalletAdminApp.ViewModel"
              mc:Ignorable="d"
-             x:Class="EWalletAdminApp.View.HistoryPage">
+             x:Class="EWalletAdminApp.View.HistoryPage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <viewmodel:HistoryViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Frame">
+                <Setter Property="Margin" Value="8"/>
+                <Setter Property="BorderColor" Value="LightGray"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <StackLayout>
+                <Grid HeightRequest="200">
+                    <Image Source="backgroundCrop" Aspect="AspectFill"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="camera100" />
+                        <StackLayout>
+                            <Label Text="ยินดดีต้อนรับ ดำรงเดช"/>
+                            <Label Text="สวัสดีตอนเช้า"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Grid>
+                <ScrollView>
+                <StackLayout>
+                    <Label Text="Nov 2019"/>
+                    <Frame IsVisible="True">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" Text="Topup"/>
+                                <Label Grid.Row="1" Grid.Column="0"  Text="2019/11/12 12:00:00"/>
+                                <Label Grid.RowSpan="2" Grid.Column="1" Text="2,000.00" HorizontalOptions="End" VerticalOptions="Center"/>
+                            </Grid>
+                    </Frame>
+                        <Frame IsVisible="True">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" Text="Topup"/>
+                                <Label Grid.Row="1" Grid.Column="0"  Text="2019/11/12 12:00:00"/>
+                                <Label Grid.RowSpan="2" Grid.Column="1" Text="2,000.00" HorizontalOptions="End" VerticalOptions="Center"/>
+                            </Grid>
+                        </Frame>
+                        <Frame IsVisible="True">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" Text="Topup"/>
+                                <Label Grid.Row="1" Grid.Column="0"  Text="2019/11/12 12:00:00"/>
+                                <Label Grid.RowSpan="2" Grid.Column="1" Text="2,000.00" HorizontalOptions="End" VerticalOptions="Center"/>
+                            </Grid>
+                        </Frame>
+                        <Label Text="Oct 2019"/>
+                        <Frame IsVisible="True">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" Text="Topup"/>
+                                <Label Grid.Row="1" Grid.Column="0"  Text="2019/11/12 12:00:00"/>
+                                <Label Grid.RowSpan="2" Grid.Column="1" Text="2,000.00" HorizontalOptions="End" VerticalOptions="Center"/>
+                            </Grid>
+                        </Frame>
+                        <Frame IsVisible="True">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" Text="Topup"/>
+                                <Label Grid.Row="1" Grid.Column="0"  Text="2019/11/12 12:00:00"/>
+                                <Label Grid.RowSpan="2" Grid.Column="1" Text="2,000.00" HorizontalOptions="End" VerticalOptions="Center"/>
+                            </Grid>
+                        </Frame>
+                        <Frame IsVisible="True">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" Text="Topup"/>
+                                <Label Grid.Row="1" Grid.Column="0"  Text="2019/11/12 12:00:00"/>
+                                <Label Grid.RowSpan="2" Grid.Column="1" Text="2,000.00" HorizontalOptions="End" VerticalOptions="Center"/>
+                            </Grid>
+                        </Frame>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

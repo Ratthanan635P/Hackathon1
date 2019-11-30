@@ -3,13 +3,71 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewmodel="clr-namespace:EWalletAdminApp.ViewModel"
              mc:Ignorable="d"
-             x:Class="EWalletAdminApp.View.HomePage">
+             x:Class="EWalletAdminApp.View.HomePage"
+             BackgroundColor="White"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <viewmodel:HomeViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Frame">
+                <Setter Property="Margin" Value="8"/>
+                <Setter Property="BorderColor" Value="LightGray"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <StackLayout>
+                <Grid HeightRequest="300">
+                    <Image Source="backgroundCrop" Aspect="AspectFill"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="camera100" />
+                        <StackLayout>
+                            <Label Text="ยินดดีต้อนรับ ดำรงเดช"/>
+                            <Label Text="สวัสดีตอนเช้า"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Grid>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Frame Grid.Column="0" Grid.Row="0">
+                        <StackLayout>
+                            <Image  Source="qrcode100"  />
+                            <Label Text="สร้าง QR Code"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Column="0" Grid.Row="1">
+                        <StackLayout>
+                            <Image  Source="qrcode100"  />
+                            <Label Text="ComingSoon"/>
+                        </StackLayout>
+                    </Frame> 
+                    <Frame Grid.Column="1" Grid.Row="0">
+                        <StackLayout>
+                            <Image  Source="qrcode100"  />
+                            <Label Text="ComingSoon"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Column="1" Grid.Row="1">
+                        <StackLayout>
+                            <Image  Source="qrcode100"  />
+                            <Label Text="ComingSoon"/>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+              
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
