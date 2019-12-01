@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewmodel="clr-namespace:EWalletMarchantApp.ViewModel"
+             mc:Ignorable="d"
+             x:Class="EWalletMarchantApp.View.LogInPage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <viewmodel:LogInViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!--<Style TargetType="Entry">
+                <Setter Property="BackgroundColor" Value="Red"/>
+            </Style>-->
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Orange"/>
+            </Style>
+            <Style TargetType="Frame" >
+                <Setter Property="BorderColor" Value="Transparent" />
+            </Style>
+            <Style TargetType="Label" >
+                <Setter Property="TextColor" Value="{StaticResource P_PimaryMainColor}"/>
+                <Setter Property="FontSize" Value="Small"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+                <StackLayout>
+                    <StackLayout HeightRequest="100"
+                    />
+                    <Image x:Name="Img_Logo" Source="walle96.png"                  
+                       HorizontalOptions="CenterAndExpand"
+                       Opacity ="1"
+                       IsVisible="True"
+                       HeightRequest="120"
+                       WidthRequest="120"
+                   />
+                    <StackLayout HeightRequest="20"/>
+                    <Label 
+                    x:Name="LbErrorMessage"
+                    FontAttributes="None"
+                   TextColor="{StaticResource P_RedColor}"
+                   Margin="40,0"
+                   WidthRequest="250"
+                   Text="{Binding LogInModel.Email}"
+                   IsVisible="False"/>
+                    <Frame x:Name="fEmail" IsVisible="True"  >
+                        <StackLayout Orientation="Vertical" Spacing="0">
+                            <Entry x:Name="EntryEmail"  IsPassword="False"
+                             Margin="10,0"
+                            ReturnType="Next"
+                          Placeholder="Username"
+                           TextColor="{StaticResource P_EntryTextColor}"                                     
+                            />
+                        </StackLayout>
+                    </Frame>
+                    <Label Text="ErrorPasswordMessage" 
+                   TextColor="Red"
+                    Margin="40,0"
+                   IsVisible="False"/>
+                    <Frame x:Name="fPassword" IsVisible="True">
+                        <StackLayout Orientation="Vertical" Spacing="0">
+                           
+                            <Entry  x:Name="EntryPassword" IsPassword="True"
+                             Margin="10,0"
+                                Text="{Binding LogInModel.Password}"
+                                Placeholder="Password"
+                                TextColor="{StaticResource P_EntryTextColor}"
+                            ReturnType="Done"
+                               
+                          />
+                        </StackLayout>
+                    </Frame>
+                    <Button x:Name="BtnLogIn"
+                        Text="Sign In" 
+                 
+                        Margin="40,5,40,5"
+
+                        IsVisible="True"
+                        Command="{Binding LogInCommand}"
+                        >
+                      
+                    </Button>
+                  
+                </StackLayout>
+                <!--<StackLayout BackgroundColor="LightGray" Opacity="0.8" IsVisible="{Binding Loading}">
+                    <forms:AnimationView 
+	                    x:Name="animationView" 
+	                    Animation="loadingdot2.json" 
+	                    Loop="True"
+	                    AutoPlay="True"
+	                    VerticalOptions="CenterAndExpand" 
+	                    HorizontalOptions="CenterAndExpand" />
+                </StackLayout>-->
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -36,7 +36,8 @@ namespace EWallet.Api
 			services.AddScoped<IMarchantRepository, MarchantRepository>();
 
 			services.AddScoped<IUserService, UserService>();
-			//services.AddScoped<IAgrentService, AgrentService>();
+			services.AddScoped<IAgrentService, AgrentService>();
+			//services.AddScoped<IMarchantService, MarchantService>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

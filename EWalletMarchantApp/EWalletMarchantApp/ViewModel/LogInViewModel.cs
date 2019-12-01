@@ -1,5 +1,5 @@
-﻿using EWalletAdminApp.Models;
-using EWalletAdminApp.View;
+﻿using EWalletMarchantApp.Models;
+using EWalletMarchantApp.View;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace EWalletAdminApp.ViewModel
+namespace EWalletMarchantApp.ViewModel
 {
 	public class LogInViewModel : BaseViewModel
 	{

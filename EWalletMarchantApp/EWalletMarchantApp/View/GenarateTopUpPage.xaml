@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:viewmodel="clr-namespace:EWalletAdminApp.ViewModel"
+             xmlns:viewmodel="clr-namespace:EWalletMarchantApp.ViewModel"
              mc:Ignorable="d"
-             x:Class="EWalletAdminApp.View.GenarateTopUpPage"
+             x:Class="EWalletMarchantApp.View.GenarateTopUpPage"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="White">
     <ContentPage.BindingContext>

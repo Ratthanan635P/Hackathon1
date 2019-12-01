@@ -63,10 +63,18 @@ namespace EWallet.Api.Controller
 			{
 				try
 				{
-					var user = _agrentService.LogIn(model.Email, model.Password);
-					if (user == null)
+					var agrent = _agrentService.LogIn(model.Email, model.Password);
+					if (agrent.NameShop == null)
+					{
 						return BadRequest(new { message = "Not Found" });
-					return Ok(user);
+					}
+					DataAgrentModel dataAgrentModel = new DataAgrentModel()
+	                { 
+						Id= agrent.Id,
+						NameShop = agrent.NameShop
+					};
+
+					return Ok(dataAgrentModel);
 				}
 				catch (Exception ex)
 				{
@@ -81,8 +89,8 @@ namespace EWallet.Api.Controller
 			}
 
 		}
-		[HttpPost("History")]
-		public IActionResult History([FromBody]string email)
+		[HttpGet("History")]
+		public IActionResult History(string email)
 		{
 			string error = "";
 			if (string.IsNullOrEmpty(email))
@@ -103,10 +111,26 @@ namespace EWallet.Api.Controller
 			{
 				try
 				{
-					var user = _agrentService.History(email);
-					if (user == null)
+					var result = _agrentService.History(email);
+					if (result == null)
+					{
 						return BadRequest(new { message = "Not Found" });
-					return Ok(user);
+					}
+					else	
+					{
+						List<TransationDto> data = result.Select(x => new TransationDto(){ 
+							Id=x.Id,
+							CreateDate=x.CreateDate,
+							Money=x.Money,
+							Receive=x.Receive.Email,
+							Sender=x.Sender.Email,
+							RefNo=x.RefNo,
+							ReceiveTransaction = x.ReceiveTransaction,
+							SenderTransaction = x.SenderTransaction						
+	                     }).ToList();			
+						return Ok(data);
+					}
+				
 				}
 				catch (Exception ex)
 				{

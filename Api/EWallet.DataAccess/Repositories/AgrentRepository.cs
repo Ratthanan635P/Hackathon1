@@ -72,7 +72,7 @@ namespace EWallet.DataAccess.Repositories
 		public List<Transactions> History(string email)
 		{
 			DateTime lastmonth = DateTime.Now.AddDays(-30);
-			var result = _context.Transactions.Where(x => x.Receive.Email == email && x.IsDelete == false && x.Sender.Email == email && x.CreateDate <= DateTime.Now && x.CreateDate > (lastmonth)).OrderBy(X => X.CreateDate).ToList();
+			var result = _context.Transactions.Where(x => (x.Sender.Email == email) && x.CreateDate <= DateTime.Now && x.CreateDate > (lastmonth)).OrderBy(X => X.CreateDate).ToList();
 
 			//var  result= user.Where(x=>x.CreateDate<=DateTime.Now&&x.CreateDate>(lastmonth)).GroupBy(x => x.CreateDate.Month).ToList();
 			return result;

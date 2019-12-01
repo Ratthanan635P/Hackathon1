@@ -1,12 +1,12 @@
-﻿using EWalletAdminApp.Functions;
-using EWalletAdminApp.View;
+﻿using EWalletMarchantApp.Functions;
+using EWalletMarchantApp.View;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace EWalletAdminApp.ViewModel
+namespace EWalletMarchantApp.ViewModel
 {
 	public class HomeViewModel:BaseViewModel
 	{

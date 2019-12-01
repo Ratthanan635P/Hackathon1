@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+               android:TabbedPage.ToolbarPlacement="Bottom"
+            xmlns:local="clr-namespace:EWalletMarchantApp.View"
+            mc:Ignorable="d"
+             x:Class="EWalletMarchantApp.View.TabHomePage"
+            NavigationPage.HasNavigationBar="False"
+            BackgroundColor="White"
+            >
+    <NavigationPage Title="หน้าแรก" IconImageSource="homeblack.png" NavigationPage.HasNavigationBar="False">
+        <x:Arguments>
+            <local:HomePage />
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="ประวัติการใช้งาน"  BarBackgroundColor="LimeGreen" IconImageSource="list100.png" NavigationPage.HasNavigationBar="False">
+        <x:Arguments>
+            <local:HistoryPage />
+        </x:Arguments>
+    </NavigationPage>
+
+</TabbedPage>

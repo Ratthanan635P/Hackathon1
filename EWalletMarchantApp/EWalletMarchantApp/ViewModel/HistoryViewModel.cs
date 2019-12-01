@@ -1,11 +1,12 @@
-﻿using EWalletAdminApp.Models;
+﻿using EWalletMarchantApp.Models;
+using EWalletMarchantApp.ViewModel;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 
-namespace EWalletAdminApp.ViewModel
+namespace EWalletMarchantApp.ViewModel
 {
 	public class HistoryViewModel:BaseViewModel
 	{

@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace EWalletAdminApp.ViewModel
+namespace EWalletMarchantApp.ViewModel
 {
 	public class BaseViewModel : INotifyPropertyChanged
 	{

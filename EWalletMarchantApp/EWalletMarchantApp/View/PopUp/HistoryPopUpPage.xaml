@@ -4,8 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
     xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
-    xmlns:vieswmodel="clr-namespace:EWalletAdminApp.ViewModel"
-    x:Class="EWalletAdminApp.View.PopUp.HistoryPopUpPage">
+    xmlns:vieswmodel="clr-namespace:EWalletMarchantApp.ViewModel"
+    x:Class="EWalletMarchantApp.View.PopUp.HistoryPopUpPage">
     <pages:PopupPage.BindingContext>
         <vieswmodel:HistoryPopUpPageViewModel/>
     </pages:PopupPage.BindingContext>
