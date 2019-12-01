@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace EWalletMarchantApp.View
+namespace EWalletAdminApp.View
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LogInPage : ContentPage

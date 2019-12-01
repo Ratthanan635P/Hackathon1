@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace EWalleMarchantApp.View
+namespace EWalletMarchantApp.View
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class GenarateTopUpPage : ContentPage

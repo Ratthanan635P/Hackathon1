@@ -43,7 +43,11 @@
                    TextColor="Black"/>
             <Image Grid.Column="0" Source="left100"  VerticalOptions="Center" Aspect="AspectFit" 
                    HeightRequest="30"
-                    />
+                    >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding BackPageCommand}"/>
+                </Image.GestureRecognizers>
+            </Image>
         </Grid>
     </NavigationPage.TitleView>
     <ContentPage.Content>
@@ -81,7 +85,7 @@
                            HorizontalTextAlignment="End"
                            VerticalOptions="StartAndExpand"
                            FontSize="40"
-                           
+                           Text="{Binding Money,StringFormat='{0:N2}'}"
                            TextColor="Gray"
                            Keyboard="Numeric"
                           

@@ -1,4 +1,5 @@
 ﻿using EWalletMarchantApp.Models;
+using EWalletMarchantApp.View;
 using EWalletMarchantApp.ViewModel;
 using Newtonsoft.Json;
 using System;
@@ -35,41 +36,41 @@ namespace EWalletMarchantApp.ViewModel
 		}
 		private async void GetDataHistory()
 		{
-			Loading = true;
-			ErrorMessage = null;
+			//Loading = true;
+			//ErrorMessage = null;
 
 
 
-			Uri url = new Uri(App.BaseUri, "Agrent/History"); //Agrent
-			try
-				{
-					HttpResponseMessage result;
-					HttpContent content = new StringContent(App.Email, Encoding.UTF8, "application/json");
-					using (HttpClient client = new HttpClient())
-					{
-						result = await client.PostAsync(url, content);
-					}
-					if (result.IsSuccessStatusCode)
-					{
-						//Navigate to Home page
-						var stringContent = await result.Content.ReadAsStringAsync();
-						//App.UserId = 1;
-						var data = JsonConvert.DeserializeObject<TransationDto>(stringContent);					
-						//await App.Current.MainPage.Navigation.PushAsync(new TabHomePage());
-						ErrorMessage = null;
-					}
-					else
-					{
-						//	ErrorMessage= await result.Content.ReadAsStringAsync();
-						ErrorMessage = "Email or Password is wrong!";
-					}
-					Loading = false;
-				}
-				catch (Exception ex)
-				{
-					Loading = false;
-					ErrorMessage = ex.Message;
-				}
+			//Uri url = new Uri(App.BaseUri, "Agrent/History"); //Agrent
+			//try
+			//	{
+			//		HttpResponseMessage result;
+			//		HttpContent content = new StringContent(App.Email, Encoding.UTF8, "application/json");
+			//		using (HttpClient client = new HttpClient())
+			//		{
+			//			result = await client.PostAsync(url, content);
+			//		}
+			//		if (result.IsSuccessStatusCode)
+			//		{
+			//			//Navigate to Home page
+			//			var stringContent = await result.Content.ReadAsStringAsync();
+			//			//App.UserId = 1;
+			//			var data = JsonConvert.DeserializeObject<TransationDto>(stringContent);					
+			     await App.Current.MainPage.Navigation.PushAsync(new TopUpPage());
+			//			ErrorMessage = null;
+			//		}
+			//		else
+			//		{
+			//			//	ErrorMessage= await result.Content.ReadAsStringAsync();
+			//			ErrorMessage = "Email or Password is wrong!";
+			//		}
+			//		Loading = false;
+			//	}
+			//	catch (Exception ex)
+			//	{
+			//		Loading = false;
+			//		ErrorMessage = ex.Message;
+			//	}
 			
 		}
 	}
