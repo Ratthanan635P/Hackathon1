@@ -114,6 +114,7 @@
                                    TextColor="LightGray"/>
                     </StackLayout>
                 </StackLayout>
+                
                 <!--<Frame BorderColor="LightGray"
                                    HasShadow="True" CornerRadius="50"  
                                    WidthRequest="40" HeightRequest="40"
@@ -137,7 +138,7 @@
                         TextColor="Orange"
                         BorderColor="LightGray"
                         BorderWidth="1"
-                         
+                         Command="{Binding BackPageCommand}"
                         />
             </StackLayout>
         </Frame>

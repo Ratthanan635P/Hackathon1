@@ -17,12 +17,16 @@ namespace EWalletAdminApp.Functions
 			string detail = "สวัสดีจร้า";
 			DateTime moningstart = DateTime.Parse("5:00:00 AM");
 			DateTime moningEnd = DateTime.Parse("11:59:00 AM");
+
 			DateTime lunchstart = DateTime.Parse("11:59:00 AM");
 			DateTime lunchEnd = DateTime.Parse("1:00:00 PM");
+
 			DateTime Bstart = DateTime.Parse("1:00:00 AM"); //ตอนแบ่าย
 			DateTime BEnd = DateTime.Parse("3:45:00 PM");//ตอนบ่าย
+
 			DateTime Estart = DateTime.Parse("3:45:00 PM"); //ตอนเย็น
 			DateTime EEnd = DateTime.Parse("6:45:00 PM");//ตอนเย็น
+
 			DateTime Nstart = DateTime.Parse("6:45:00 PM"); //ตอนมืด
 			DateTime NEnd = DateTime.Parse("9:45:00 PM");//ตอนมืด
 

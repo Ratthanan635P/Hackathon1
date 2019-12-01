@@ -7,22 +7,35 @@ using Xamarin.Forms;
 
 namespace EWalletAdminApp.ViewModel
 {
-	 public class TopUpPageViewModel
+	 public class TopUpPageViewModel:BaseViewModel
 	{
 		public ICommand CommitCommand { get; set; }
 		public ICommand BackPageCommand { get; set; }
-		public string Money { get; set; }
+		//public string Money { get; set; }
+		private string money;
+		public string Money
+		{
+			get { return money; }
+			set
+			{
+				if (value != money)
+				{
+					money = value;
+					OnPropertyChanged();
+				}
+			}
+		}
 		public TopUpPageViewModel()
 		{
-			Money = "0.00";
+			
 			CommitCommand = new Command(GotoGenaratePage);
-			BackPageCommand = new Command(BackPage);
+			BackPageCommand = new Command(BacknPage);
 		}
 		private async void GotoGenaratePage()
 		{
 			await App.Current.MainPage.Navigation.PushAsync(new GenarateTopUpPage());
 		}
-		private async void BackPage()
+		private async void BacknPage()
 		{
 			await App.Current.MainPage.Navigation.PopAsync();
 		}

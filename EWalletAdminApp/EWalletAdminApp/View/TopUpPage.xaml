@@ -84,12 +84,13 @@
                            HorizontalOptions="EndAndExpand"
                            HorizontalTextAlignment="End"
                            VerticalOptions="StartAndExpand"
-                           WidthRequest="160"
+                           
                            FontSize="40"
                            Text="{Binding Money,StringFormat='{0:N2}'}"
                            TextColor="Gray"
                            Keyboard="Numeric"
-                               CursorPosition="160"
+                               CursorPosition="200"
+                               Placeholder="0.00"
                                Focused="Entry_Focused"
                                Unfocused="Entry_Unfocused"
                            />

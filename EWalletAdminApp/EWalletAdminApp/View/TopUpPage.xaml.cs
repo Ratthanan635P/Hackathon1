@@ -19,12 +19,12 @@ namespace EWalletAdminApp.View
 
 		private void Entry_Unfocused(object sender, FocusEventArgs e)
 		{
-
+			
 		}
 
 		private void Entry_Focused(object sender, FocusEventArgs e)
 		{
-
+			WidthRequest = 160;
 		}
 	}
 }

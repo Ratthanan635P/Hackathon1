@@ -12,6 +12,7 @@ namespace EWalletAdminApp
 		public static string Email { get;  set; }
 		public static string NameShop { get; set; }
 		public static int UserId { get; set; }
+		public static int Main { get; set; }
 		public App()
 		{
 			InitializeComponent();
@@ -19,6 +20,7 @@ namespace EWalletAdminApp
 			Email = "";
 			NameShop = "";
 			UserId = 0;
+			Main = 0;
 			MainPage =new NavigationPage( new LogInPage());
 		}
 

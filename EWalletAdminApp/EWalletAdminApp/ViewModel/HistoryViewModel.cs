@@ -29,7 +29,7 @@ namespace EWalletAdminApp.ViewModel
 			//HomeCommand = new Command(GotoHomePage, () => false);
 			//TopUpCommand = new Command(GotoTopUpPage, () => false);
 			//HistoryCommand = new Command(GotoHistoryPage, () => false);
-			GetDataHistory();
+		//	GetDataHistory();
 
 		}
 		private async void GetDataHistory()
