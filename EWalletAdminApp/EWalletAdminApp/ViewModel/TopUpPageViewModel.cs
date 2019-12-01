@@ -14,6 +14,7 @@ namespace EWalletAdminApp.ViewModel
 		public string Money { get; set; }
 		public TopUpPageViewModel()
 		{
+			Money = "0.00";
 			CommitCommand = new Command(GotoGenaratePage);
 			BackPageCommand = new Command(BackPage);
 		}

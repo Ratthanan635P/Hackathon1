@@ -77,18 +77,21 @@
                         <ColumnDefinition Width="1.5*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Entry Grid.Column="0"
+                        <Entry Grid.Column="0"
                            Grid.RowSpan="3" 
                            
-                           Placeholder="0.00"
+                           
                            HorizontalOptions="EndAndExpand"
                            HorizontalTextAlignment="End"
                            VerticalOptions="StartAndExpand"
+                           WidthRequest="160"
                            FontSize="40"
                            Text="{Binding Money,StringFormat='{0:N2}'}"
                            TextColor="Gray"
                            Keyboard="Numeric"
-                          
+                               CursorPosition="160"
+                               Focused="Entry_Focused"
+                               Unfocused="Entry_Unfocused"
                            />
                     <Label Text="THB" FontSize="10" 
                            Grid.Column="1" Grid.Row="1"

@@ -16,5 +16,15 @@ namespace EWalletAdminApp.View
 		{
 			InitializeComponent();
 		}
+
+		private void Entry_Unfocused(object sender, FocusEventArgs e)
+		{
+
+		}
+
+		private void Entry_Focused(object sender, FocusEventArgs e)
+		{
+
+		}
 	}
 }
