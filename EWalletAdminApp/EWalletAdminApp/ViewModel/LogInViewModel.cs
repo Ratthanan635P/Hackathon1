@@ -85,6 +85,7 @@ namespace EWalletAdminApp.ViewModel
 						var data = JsonConvert.DeserializeObject<DataAgrentModel>(stringContent);
 						App.Email = logInModel.Email;
 						App.UserId = data.Id;
+						App.NameShop = data.NameShop;
 						await App.Current.MainPage.Navigation.PushAsync(new TabHomePage());
 						ErrorMessage = null;
 

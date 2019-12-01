@@ -29,7 +29,8 @@
                         <StackLayout VerticalOptions="CenterAndExpand">
                             <Label FontSize="Title" Text="{Binding NameOwer}" MaxLines="1" LineBreakMode="TailTruncation" HorizontalOptions="Start" 
                                    TextColor="White" 
-                                   FontAttributes="Bold"/>
+                                   FontAttributes="Bold"
+                                  />
                             <Label Text="{Binding Hello}" HorizontalOptions="Start" FontSize="Medium"  TextColor="White"/>
                         </StackLayout>
                     </StackLayout>

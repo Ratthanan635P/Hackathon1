@@ -167,10 +167,15 @@ namespace EWallet.Api.Controller
 			{
 				try
 				{
-					var user = _agrentService.GenarateTopup(model.Money,model.AgrentId);
-					if (user == null)
+					var data = _agrentService.GenarateTopup(model.Money,model.AgrentId);
+					if (data == null)
 						return BadRequest(new { message = "Not Found" });
-					return Ok(user);
+					DataModel topUpModel = new DataModel() {
+	                 RefNo= data.RefNo,
+					 ExpireDate=data.ExpireDate,
+					 Money=data.Money
+					};
+					return Ok(topUpModel);
 				}
 				catch (Exception ex)
 				{

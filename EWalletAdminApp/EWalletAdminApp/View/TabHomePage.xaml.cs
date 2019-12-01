@@ -17,5 +17,5 @@ namespace EWalletAdminApp.View
 			InitializeComponent();
 			App.Main = Navigation.NavigationStack.Count();
 		}
-}
+    }
 }

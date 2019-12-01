@@ -1,6 +1,9 @@
-﻿using EWalletAdminApp.View;
+﻿using EWalletAdminApp.Models;
+using EWalletAdminApp.View;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -33,7 +36,44 @@ namespace EWalletAdminApp.ViewModel
 		}
 		private async void GotoGenaratePage()
 		{
-			await App.Current.MainPage.Navigation.PushAsync(new GenarateTopUpPage());
+
+			GenTopUpModel topUpModel = new GenTopUpModel() 
+            { 
+				Money =Convert.ToDouble(Money),
+				AgrentId=App.Email
+             };
+			Uri url = new Uri(App.BaseUri, "Agrent/Topup"); //Agrent
+			try
+			{
+		HttpResponseMessage result;
+				string json = JsonConvert.SerializeObject(topUpModel);
+				HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
+				using (HttpClient client = new HttpClient())
+				{
+					result = await client.PostAsync(url, content);
+				}
+				if (result.IsSuccessStatusCode)
+				{
+					//Navigate to Home page
+					var stringContent = await result.Content.ReadAsStringAsync();
+					//App.UserId = 1;
+					var data = JsonConvert.DeserializeObject<DataModel>(stringContent);
+					await App.Current.MainPage.Navigation.PushAsync(new GenarateTopUpPage(data));
+					ErrorMessage = null;
+				}
+				else
+				{
+					//	ErrorMessage= await result.Content.ReadAsStringAsync();
+					ErrorMessage = "Email or Password is wrong!";
+				}
+				Loading = false;
+			}
+			catch (Exception ex)
+			{
+				Loading = false;
+				ErrorMessage = ex.Message;
+			}
+			
 		}
 		private async void BacknPage()
 		{
