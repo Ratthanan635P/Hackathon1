@@ -57,7 +57,7 @@ namespace EWalletAdminApp.ViewModel
 					//Navigate to Home page
 					var stringContent = await result.Content.ReadAsStringAsync();
 					//App.UserId = 1;
-					var data = JsonConvert.DeserializeObject<DataModel>(stringContent);
+					DataModel data = JsonConvert.DeserializeObject<DataModel>(stringContent);
 					await App.Current.MainPage.Navigation.PushAsync(new GenarateTopUpPage(data));
 					ErrorMessage = null;
 				}
