@@ -18,8 +18,6 @@
                 <Setter Property="BorderColor" Value="Gray" />
                 <Setter Property="Padding" Value="10,5" />
                 <Setter Property="CornerRadius" Value="5"/>
-      
-
             </Style>
             <Style TargetType="Button">
                 <Setter Property="Margin" Value="40,0"/>

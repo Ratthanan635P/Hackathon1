@@ -18,7 +18,7 @@ namespace EWalletAdminApp.View
 	{
 		public GenarateTopUpPage(DataModel data)
 		{
-			//InitializeComponent();
+			InitializeComponent();
 
 			BindingContext = new GenarateTopUpViewModel(data);
 			string code = "TT0TT"+App.Email+"TT1TT"+ data.RefNo + "TT2TT" +data.ExpireDate + "TT3TT" + data.Money + "TT4TT";

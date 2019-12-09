@@ -220,6 +220,7 @@ namespace EWallet.DataAccess.Repositories
 			Customer.UpdateDate = transactions.CreateDate;
 			topUp.IsUsed = true;
 			_context.SaveChanges();
+
 			return true;			
 		}
 		public bool Payment(string emailSender, double money, string emailReceive)

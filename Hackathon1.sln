@@ -7,11 +7,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mobile", "Mobile", "{B7C6DF
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{CC9C1D5B-3BB3-4E4A-9950-C7BA9A8A4E63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EWallet.Api", "Api\EWallet.Api\EWallet.Api.csproj", "{C7C5AAE8-2404-4BA6-9B6C-4BD066C3BC81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EWallet.Api", "Api\EWallet.Api\EWallet.Api.csproj", "{C7C5AAE8-2404-4BA6-9B6C-4BD066C3BC81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EWallet.Domain", "Api\EWallet.Domain\EWallet.Domain.csproj", "{9F3887FE-FCA1-403B-B414-9E8F0EA9D987}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EWallet.Domain", "Api\EWallet.Domain\EWallet.Domain.csproj", "{9F3887FE-FCA1-403B-B414-9E8F0EA9D987}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EWallet.DataAccess", "Api\EWallet.DataAccess\EWallet.DataAccess.csproj", "{F7A359BB-DCEE-4197-AFBD-B408061AE880}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EWallet.DataAccess", "Api\EWallet.DataAccess\EWallet.DataAccess.csproj", "{F7A359BB-DCEE-4197-AFBD-B408061AE880}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EWalletAdmin", "EWalletAdmin", "{BD7531C6-9B43-496F-8850-86B3697757DC}"
 EndProject
@@ -21,17 +21,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EWalletMarchant", "EWalletM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EWalletAdminApp.Android", "EWalletAdminApp\EWalletAdminApp.Android\EWalletAdminApp.Android.csproj", "{0C904DAD-8008-41FE-98B1-FA00AC558E95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EWalletAdminApp", "EWalletAdminApp\EWalletAdminApp\EWalletAdminApp.csproj", "{49861207-5BBF-4E9E-A895-48E4121F97A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EWalletAdminApp", "EWalletAdminApp\EWalletAdminApp\EWalletAdminApp.csproj", "{49861207-5BBF-4E9E-A895-48E4121F97A8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EWalletMarchantApp.Android", "EWalletMarchantApp\EWalletMarchantApp.Android\EWalletMarchantApp.Android.csproj", "{03B983BF-CE21-4C7A-8531-5A4447288D9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EWalletMarchantApp", "EWalletMarchantApp\EWalletMarchantApp\EWalletMarchantApp.csproj", "{DA38AB86-F0EF-4202-9D63-F188A0C8033F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EWalletMarchantApp", "EWalletMarchantApp\EWalletMarchantApp\EWalletMarchantApp.csproj", "{DA38AB86-F0EF-4202-9D63-F188A0C8033F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EWalletUserApp.Android", "EWalletUserApp\EWalletUserApp.Android\EWalletUserApp.Android.csproj", "{254273E1-3AD1-4DB3-B492-C5762E65A5D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EWalletUserApp", "EWalletUserApp\EWalletUserApp\EWalletUserApp.csproj", "{9A4854E1-4E13-4E9A-BC27-1D81280EED51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EWalletUserApp", "EWalletUserApp\EWalletUserApp\EWalletUserApp.csproj", "{9A4854E1-4E13-4E9A-BC27-1D81280EED51}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsoleApp", "TestConsoleApp\TestConsoleApp.csproj", "{E700039F-2CF3-4B1E-80AE-8B804649463E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestConsoleApp", "TestConsoleApp\TestConsoleApp.csproj", "{E700039F-2CF3-4B1E-80AE-8B804649463E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Components", "Components", "{1D4D5FDD-228D-457B-A58C-B4013C0EE27D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContentView.Android", "ContentView\ContentView.Android\ContentView.Android.csproj", "{415C6101-7CBC-4B8A-8C3D-AE99791C2730}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContentView", "ContentView\ContentView\ContentView.csproj", "{0B7E95E8-68C6-4BAC-A730-69E37F594BA6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,6 +91,16 @@ Global
 		{E700039F-2CF3-4B1E-80AE-8B804649463E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E700039F-2CF3-4B1E-80AE-8B804649463E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E700039F-2CF3-4B1E-80AE-8B804649463E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{415C6101-7CBC-4B8A-8C3D-AE99791C2730}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{415C6101-7CBC-4B8A-8C3D-AE99791C2730}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{415C6101-7CBC-4B8A-8C3D-AE99791C2730}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{415C6101-7CBC-4B8A-8C3D-AE99791C2730}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{415C6101-7CBC-4B8A-8C3D-AE99791C2730}.Release|Any CPU.Build.0 = Release|Any CPU
+		{415C6101-7CBC-4B8A-8C3D-AE99791C2730}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{0B7E95E8-68C6-4BAC-A730-69E37F594BA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B7E95E8-68C6-4BAC-A730-69E37F594BA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B7E95E8-68C6-4BAC-A730-69E37F594BA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B7E95E8-68C6-4BAC-A730-69E37F594BA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -103,6 +119,9 @@ Global
 		{254273E1-3AD1-4DB3-B492-C5762E65A5D6} = {16D939C4-D455-4F83-AF2D-0F272EA739AB}
 		{9A4854E1-4E13-4E9A-BC27-1D81280EED51} = {16D939C4-D455-4F83-AF2D-0F272EA739AB}
 		{E700039F-2CF3-4B1E-80AE-8B804649463E} = {CC9C1D5B-3BB3-4E4A-9950-C7BA9A8A4E63}
+		{1D4D5FDD-228D-457B-A58C-B4013C0EE27D} = {B7C6DF20-03A2-4B29-929B-B9217B061C79}
+		{415C6101-7CBC-4B8A-8C3D-AE99791C2730} = {1D4D5FDD-228D-457B-A58C-B4013C0EE27D}
+		{0B7E95E8-68C6-4BAC-A730-69E37F594BA6} = {1D4D5FDD-228D-457B-A58C-B4013C0EE27D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FF292FDE-534F-4E9B-9A3D-A6CBB656669C}
