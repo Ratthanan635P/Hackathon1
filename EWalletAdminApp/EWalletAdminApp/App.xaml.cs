@@ -21,7 +21,7 @@ namespace EWalletAdminApp
 			NameShop = "";
 			UserId = 0;
 			Main = 0;
-			MainPage =new NavigationPage( new LogInPage());
+			MainPage =new NavigationPage( new MainPage());
 		}
 
 		protected override void OnStart()

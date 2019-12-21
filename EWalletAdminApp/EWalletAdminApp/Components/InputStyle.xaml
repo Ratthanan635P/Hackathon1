@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+              x:Name="thisView"
+             x:Class="EWalletAdminApp.Components.InputStyle">
+  <ContentView.Content>
+        <Frame HasShadow="True" BorderColor="White" 
+               BindingContext="{x:Reference thisView}">
+            <StackLayout Spacing="0" Padding="0">
+                <StackLayout Orientation="Horizontal" Spacing="2">
+                    <Label  Text="{Binding TextLabel}" FontSize="Small"/>
+                    <Label  Text="{Binding TextLabelDate}" FontSize="Small"/>
+                </StackLayout>
+                <Entry  Text="{Binding Texten}" IsPassword="{Binding PasswordEntry}" Placeholder="{Binding Placehoder}" />
+            </StackLayout>
+        </Frame>
+  </ContentView.Content>
+</ContentView>
